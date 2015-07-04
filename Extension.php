@@ -30,7 +30,7 @@ class Extension extends BaseExtension
     {
     	$application = FacebookSession::setDefaultApplication($this->config['app_id'], $this->config['app_secret']);
 
-    	$session = FacebookSession::newAppSession();
+		$session = FacebookSession::newAppSession();
 
 		$request = new FacebookRequest(
 		  $session,
@@ -39,8 +39,8 @@ class Extension extends BaseExtension
 		);
 		$response = $request->execute();
 		$graphObject = $response->getGraphObject();
-		
-	  	$response = $this->app->json($graphObject->asArray(), 200);
+
+		$response = $this->app->json($graphObject->asArray(), 200);
     	return $response;
 
 
