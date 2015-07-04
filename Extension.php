@@ -28,7 +28,7 @@ class Extension extends BaseExtension
 
     public function example()
     {
-    	$application = FacebookSession::setDefaultApplication($this->config['app_id'], $this->config['app_secret']);
+		$application = FacebookSession::setDefaultApplication($this->config['app_id'], $this->config['app_secret']);
 
 		$session = FacebookSession::newAppSession();
 
@@ -41,9 +41,7 @@ class Extension extends BaseExtension
 		$graphObject = $response->getGraphObject();
 
 		$response = $this->app->json($graphObject->asArray(), 200);
-    	return $response;
-
-
+		return $response;
     }
 
 }
