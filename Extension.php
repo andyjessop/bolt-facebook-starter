@@ -15,19 +15,19 @@ use Bolt\BaseExtension;
 class Extension extends BaseExtension
 {
 
-    public function initialize() {
+	public function initialize() {
 
-    	$this->app->get('api/example', array($this, 'example'))
-            ->bind('example');
-    }
+		$this->app->get('api/example', array($this, 'example'))
+	        ->bind('example');
+	}
 
-    public function getName()
-    {
-        return "Facebook";
-    }
+	public function getName()
+	{
+	    return "Facebook";
+	}
 
-    public function example()
-    {
+	public function example()
+	{
 		$application = FacebookSession::setDefaultApplication($this->config['app_id'], $this->config['app_secret']);
 
 		$session = FacebookSession::newAppSession();
@@ -42,7 +42,7 @@ class Extension extends BaseExtension
 
 		$response = $this->app->json($graphObject->asArray(), 200);
 		return $response;
-    }
+	}
 
 }
 
